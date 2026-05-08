@@ -1,12 +1,24 @@
 /* ---------- Tokens ---------- */
 :root {
-  --navy: #0A2540;
-  --bg: #FAFAF7;
+  /* Brand blues — primary palette */
+  --brand-blue: #1865AB;
+  --brand-blue-medium: #3F86C6;
+  --brand-blue-light: #7FBCE7;
+  --brand-blue-pale: #D1E9F9;
+
+  /* Legacy --navy alias kept so existing rules pick up the new brand blue.
+     Conceptually: navy = brand-blue throughout the site. */
+  --navy: var(--brand-blue);
+
+  /* Gold — reserved for: nav Book Now button, eyebrows, SOLD badges, play button */
   --gold: #C8A45D;
   --gold-hover: #b3924f;
-  --text: #1A1A1A;
-  --muted: #5a5a5a;
-  --border: #e5e3dc;
+
+  /* Surface + text */
+  --bg: #FFFFFF;
+  --text: #495057;     /* charcoal — passes WCAG AA on white and pale blue */
+  --muted: #6c757d;
+  --border: #e5e7eb;
 
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
   --font-display: 'Playfair Display', Georgia, serif;
@@ -62,6 +74,13 @@ p { margin: 0 0 var(--space-sm); }
 
 section { padding: var(--space-xl) 0; }
 
+/* ---------- Section background helpers ----------
+   Used to alternate white / pale-blue across long pages for visual rhythm. */
+.bg-pale  { background: var(--brand-blue-pale); }
+.bg-white { background: #fff; }
+.bg-blue  { background: var(--brand-blue); color: #fff; }
+.bg-blue h1, .bg-blue h2, .bg-blue h3 { color: #fff; }
+
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-block;
@@ -77,16 +96,30 @@ section { padding: var(--space-xl) 0; }
 }
 
 .btn-primary {
-  background: var(--gold);
-  color: var(--navy);
+  background: var(--brand-blue);
+  color: #fff;
 }
-.btn-primary:hover { background: var(--gold-hover); }
+.btn-primary:hover { background: var(--brand-blue-medium); }
+
+/* Exception: the nav "Book Now" button keeps gold for emphasis. */
+.nav-links .btn-primary {
+  background: var(--gold);
+  color: var(--brand-blue);
+}
+.nav-links .btn-primary:hover {
+  background: var(--gold-hover);
+  color: var(--brand-blue);
+}
 
 .btn-secondary {
-  background: var(--navy);
-  color: var(--bg);
+  background: transparent;
+  color: var(--brand-blue);
+  border: 1.5px solid var(--brand-blue);
 }
-.btn-secondary:hover { background: #07182b; }
+.btn-secondary:hover {
+  background: var(--brand-blue);
+  color: #fff;
+}
 
 .btn-outline {
   background: transparent;
@@ -165,7 +198,7 @@ body {
   transition: color 150ms ease;
 }
 .nav-links a:hover,
-.nav-links a.active { color: var(--gold); }
+.nav-links a.active { color: var(--brand-blue); }
 
 .nav-links .btn { padding: 0.6rem 1.25rem; }
 
@@ -252,7 +285,7 @@ body {
   color: var(--muted);
 }
 .hero-call a { color: var(--navy); font-weight: 600; }
-.hero-call a:hover { color: var(--gold); }
+.hero-call a:hover { color: var(--brand-blue-medium); }
 
 /* ---------- Embeds ---------- */
 .embed {
@@ -307,7 +340,7 @@ body {
   font-family: var(--font-display);
   font-size: clamp(2.75rem, 6vw, 4rem);
   font-weight: 600;
-  color: var(--gold);
+  color: var(--brand-blue);
   line-height: 1;
   margin-bottom: 0.5rem;
 }
@@ -353,8 +386,8 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--gold);
-  color: var(--navy);
+  background: var(--brand-blue);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -456,17 +489,17 @@ body {
   padding: var(--space-md);
   border-radius: var(--radius);
   text-align: center;
-  border-left: 4px solid var(--gold);
+  border-left: 4px solid var(--brand-blue-light);
 }
-.contact-callout p { margin: 0.2rem 0; color: rgba(250, 250, 247, 0.85); }
+.contact-callout p { margin: 0.2rem 0; color: rgba(255, 255, 255, 0.88); }
 .contact-callout .callout-lede {
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 2vw, 1.5rem);
-  color: var(--bg);
+  color: #fff;
   margin-bottom: 0.25rem;
 }
 .contact-callout a {
-  color: var(--gold);
+  color: var(--brand-blue-pale);
   font-weight: 600;
   font-size: 1.15rem;
 }
@@ -604,7 +637,7 @@ body {
 }
 
 .price-card.featured {
-  border-color: var(--gold);
+  border-color: var(--brand-blue);
   border-width: 2px;
   position: relative;
 }
@@ -615,8 +648,8 @@ body {
   top: -12px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--gold);
-  color: var(--navy);
+  background: var(--brand-blue);
+  color: #fff;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -694,8 +727,8 @@ body {
   top: 0.5em;
   width: 0.65rem;
   height: 0.4rem;
-  border-left: 2px solid var(--gold);
-  border-bottom: 2px solid var(--gold);
+  border-left: 2px solid var(--brand-blue);
+  border-bottom: 2px solid var(--brand-blue);
   transform: rotate(-45deg);
 }
 
@@ -774,8 +807,8 @@ body {
   outline-offset: 4px;
 }
 .faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary:hover { color: var(--gold); }
-.faq-item summary:focus-visible { color: var(--gold); }
+.faq-item summary:hover { color: var(--brand-blue-medium); }
+.faq-item summary:focus-visible { color: var(--brand-blue-medium); }
 
 .faq-item summary::after {
   content: '+';
@@ -785,12 +818,12 @@ body {
   transform: translateY(-50%);
   font-size: 1.6rem;
   font-weight: 300;
-  color: var(--gold);
+  color: var(--brand-blue);
   line-height: 1;
   transition: transform 200ms ease;
 }
 
-.faq-item[open] summary { color: var(--gold); }
+.faq-item[open] summary { color: var(--brand-blue); }
 .faq-item[open] summary::after {
   content: '−';
   font-size: 1.6rem;
@@ -805,12 +838,12 @@ body {
 }
 
 .faq-answer a {
-  color: var(--navy);
+  color: var(--brand-blue);
   font-weight: 600;
-  border-bottom: 1px solid var(--gold);
+  border-bottom: 1px solid var(--brand-blue);
   transition: color 150ms ease;
 }
-.faq-answer a:hover { color: var(--gold); }
+.faq-answer a:hover { color: var(--brand-blue-medium); }
 
 /* ---------- Gallery: Featured Tour ---------- */
 .featured-tour {
@@ -856,7 +889,7 @@ body {
   margin-bottom: 0.65rem;
 }
 .featured-tour .tour-subtitle {
-  color: var(--gold);
+  color: var(--brand-blue);
   font-weight: 600;
   letter-spacing: 0.14em;
   font-size: 1.05rem;
@@ -930,7 +963,7 @@ body {
   .tour-card h3 { font-size: 1.25rem; }
 }
 .tour-card .tour-subtitle {
-  color: var(--gold);
+  color: var(--brand-blue);
   font-weight: 600;
   letter-spacing: 0.14em;
   font-size: 0.95rem;
@@ -1024,8 +1057,8 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: var(--gold);
-  color: var(--navy);
+  background: var(--brand-blue);
+  color: #fff;
   margin-bottom: var(--space-sm);
 }
 .step-icon svg { width: 28px; height: 28px; }
@@ -1037,7 +1070,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--gold);
+  color: var(--brand-blue);
   margin-bottom: 0.35rem;
 }
 
@@ -1062,12 +1095,12 @@ body {
   font-family: var(--font-display);
   font-size: clamp(1.35rem, 2.2vw, 1.7rem);
   font-weight: 600;
-  color: var(--bg);
+  color: #fff;
   margin: 0 0 var(--space-sm);
   line-height: 1.25;
 }
 .contact-callout .callout-body {
-  color: rgba(250, 250, 247, 0.82);
+  color: rgba(255, 255, 255, 0.85);
   max-width: 56ch;
   margin: 0 auto var(--space-sm);
   font-size: 1rem;
@@ -1078,30 +1111,40 @@ body {
 .portfolio-callout {
   max-width: 900px;
   margin: 0 auto;
-  background: var(--navy);
-  color: var(--bg);
+  background: var(--brand-blue);
+  color: #fff;
   padding: var(--space-lg);
   border-radius: var(--radius);
   text-align: center;
-  border-left: 4px solid var(--gold);
+  border-left: 4px solid var(--brand-blue-light);
 }
 .portfolio-callout h2 {
-  color: var(--bg);
+  color: #fff;
   margin-bottom: var(--space-sm);
 }
 .portfolio-callout p {
-  color: rgba(250, 250, 247, 0.88);
+  color: rgba(255, 255, 255, 0.92);
   max-width: 56ch;
   margin: 0 auto var(--space-md);
   font-size: 1.05rem;
 }
 .portfolio-callout p a {
-  color: var(--gold);
+  color: var(--brand-blue-pale);
   font-weight: 600;
-  border-bottom: 1px solid rgba(200, 164, 93, 0.4);
+  border-bottom: 1px solid rgba(209, 233, 249, 0.4);
   transition: border-color 150ms ease;
 }
-.portfolio-callout p a:hover { border-bottom-color: var(--gold); }
+.portfolio-callout p a:hover { border-bottom-color: var(--brand-blue-pale); }
+
+/* The primary button inside the brand-blue portfolio callout needs an inverted look */
+.portfolio-callout .btn-primary {
+  background: #fff;
+  color: var(--brand-blue);
+}
+.portfolio-callout .btn-primary:hover {
+  background: var(--brand-blue-pale);
+  color: var(--brand-blue);
+}
 
 /* ---------- Booking Form ---------- */
 .booking-wrap {
@@ -1126,9 +1169,9 @@ body {
   color: var(--bg);
   border-radius: var(--radius);
 }
-.contact-block h3 { color: var(--bg); font-family: var(--font-body); font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: var(--space-sm); }
-.contact-block a { color: var(--gold); font-weight: 600; }
-.contact-block p { color: rgba(250,250,247,0.85); margin: 0.25rem 0; }
+.contact-block h3 { color: #fff; font-family: var(--font-body); font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: var(--space-sm); }
+.contact-block a { color: var(--brand-blue-pale); font-weight: 600; }
+.contact-block p { color: rgba(255,255,255,0.88); margin: 0.25rem 0; }
 
 form.booking-form {
   background: #fff;
@@ -1160,7 +1203,7 @@ form.booking-form {
 .field select:focus,
 .field textarea:focus {
   outline: none;
-  border-color: var(--gold);
+  border-color: var(--brand-blue);
 }
 
 .field textarea { resize: vertical; min-height: 100px; }
@@ -1178,25 +1221,36 @@ form.booking-form .btn { margin-top: var(--space-sm); }
 
 /* ---------- CTA Strip ---------- */
 .cta-strip {
-  background: var(--navy);
-  color: var(--bg);
+  background: var(--brand-blue);
+  color: #fff;
   padding: var(--space-lg) 0;
   text-align: center;
 }
-.cta-strip h2 { color: var(--bg); }
-.cta-strip p { color: rgba(250,250,247,0.85); max-width: 60ch; margin: 0 auto var(--space-md); }
+.cta-strip h2 { color: #fff; }
+.cta-strip p { color: rgba(255,255,255,0.9); max-width: 60ch; margin: 0 auto var(--space-md); }
+
+/* The .btn-primary inside a CTA strip needs to remain clickable looking on a
+   blue background. Override to a high-contrast solid white button. */
+.cta-strip .btn-primary {
+  background: #fff;
+  color: var(--brand-blue);
+}
+.cta-strip .btn-primary:hover {
+  background: var(--brand-blue-pale);
+  color: var(--brand-blue);
+}
 
 /* ---------- Footer ---------- */
 .site-footer {
-  background: var(--navy);
-  color: rgba(250,250,247,0.85);
+  background: var(--brand-blue);
+  color: rgba(255,255,255,0.85);
   padding: var(--space-md) 0;
   font-size: 0.9rem;
   text-align: center;
   line-height: 1.8;
 }
 .site-footer .footer-line { margin: 0.15rem 0; }
-.site-footer a { color: var(--gold); }
+.site-footer a { color: var(--brand-blue-pale); }
 
 /* ---------- Utility ---------- */
 .center { text-align: center; }
