@@ -96,11 +96,9 @@ section { padding: var(--space-xl) 0; }
 .btn-outline:hover { background: var(--navy); color: var(--bg); }
 
 /* ---------- Header / Nav ---------- */
-/* Body padding compensates for the fixed nav being out of flow.
-   Adds the iOS safe-area inset on top so content starts below any system UI
-   (status bar, Dynamic Island, Safari address bar overlay). */
+/* Body padding compensates for the fixed nav being out of flow. */
 body {
-  padding-top: calc(72px + env(safe-area-inset-top, 0px));
+  padding-top: 72px;
 }
 
 .site-header {
@@ -113,16 +111,19 @@ body {
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   box-shadow: 0 1px 3px rgba(10, 37, 64, 0.04);
-
-  /* iOS safe-area: push nav contents BELOW the system UI (status bar,
-     Dynamic Island, Safari overlay bar). Without this, the brand text
-     and links render UNDER the iPhone status bar. */
-  padding-top: env(safe-area-inset-top, 0px);
-
-  /* No transform / translate3d here — those break env() evaluation
-     on iOS WebKit (known bug since iOS 11). Stacking is handled
-     by z-index 9999 alone. */
   isolation: isolate;
+}
+
+/* Mobile: hardcoded 44px fallback for iOS status bar on top of any safe-area inset.
+   Even if env() returns 0 (which it can on certain iOS configurations), the nav
+   content still gets pushed below the iPhone's system UI. */
+@media (max-width: 900px) {
+  body {
+    padding-top: calc(72px + max(env(safe-area-inset-top, 0px), 44px));
+  }
+  .site-header {
+    padding-top: max(env(safe-area-inset-top, 0px), 44px);
+  }
 }
 
 /* Ensure iframe wrappers stay in the base stacking context, never above the nav */
