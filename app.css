@@ -114,16 +114,14 @@ body {
   border-bottom: 1px solid var(--border);
   box-shadow: 0 1px 3px rgba(10, 37, 64, 0.04);
 
-  /* iOS safe-area: push nav contents BELOW the system UI so they can't be
-     clipped by the iPhone status bar / Dynamic Island / Safari overlay bar. */
+  /* iOS safe-area: push nav contents BELOW the system UI (status bar,
+     Dynamic Island, Safari overlay bar). Without this, the brand text
+     and links render UNDER the iPhone status bar. */
   padding-top: env(safe-area-inset-top, 0px);
 
-  /* GPU compositor layer for iframe stacking on iOS Safari */
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  /* No transform / translate3d here — those break env() evaluation
+     on iOS WebKit (known bug since iOS 11). Stacking is handled
+     by z-index 9999 alone. */
   isolation: isolate;
 }
 
