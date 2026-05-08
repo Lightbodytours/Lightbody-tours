@@ -16,6 +16,7 @@
 
   /* Surface + text */
   --bg: #FFFFFF;
+  --bg-soft: #F8F9FA;  /* off-white — softer alternation than pale blue */
   --text: #495057;     /* charcoal — passes WCAG AA on white and pale blue */
   --muted: #6c757d;
   --border: #e5e7eb;
@@ -75,11 +76,25 @@ p { margin: 0 0 var(--space-sm); }
 section { padding: var(--space-xl) 0; }
 
 /* ---------- Section background helpers ----------
-   Used to alternate white / pale-blue across long pages for visual rhythm. */
-.bg-pale  { background: var(--brand-blue-pale); }
+   Three tones for soft alternation: white (default) → soft → pale-blue (showcase).
+   Use .bg-soft for the bulk of alternation so contrast edges aren't choppy.
+   Use .bg-pale for "punch" sections (gallery showcase, booking contact callout). */
 .bg-white { background: #fff; }
+.bg-soft  { background: var(--bg-soft); }
+.bg-pale  { background: var(--brand-blue-pale); }
 .bg-blue  { background: var(--brand-blue); color: #fff; }
 .bg-blue h1, .bg-blue h2, .bg-blue h3 { color: #fff; }
+.bg-blue .eyebrow { color: var(--brand-blue-pale); }
+.bg-blue .section-head p,
+.bg-blue p { color: rgba(255, 255, 255, 0.9); }
+.bg-blue .muted { color: rgba(255, 255, 255, 0.75); }
+
+/* Contact callout sitting INSIDE a brand-blue section needs visual distinction from
+   the section bg. Use a darker translucent overlay instead of the same brand blue. */
+.bg-blue .contact-callout {
+  background: rgba(0, 0, 0, 0.18);
+  border-left: 4px solid var(--brand-blue-pale);
+}
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -386,8 +401,8 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--brand-blue);
-  color: #fff;
+  background: var(--brand-blue-pale);
+  color: var(--brand-blue);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -598,7 +613,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--brand-blue);
   margin-bottom: var(--space-sm);
 }
 
@@ -1057,8 +1072,8 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: var(--brand-blue);
-  color: #fff;
+  background: var(--brand-blue-pale);
+  color: var(--brand-blue);
   margin-bottom: var(--space-sm);
 }
 .step-icon svg { width: 28px; height: 28px; }
