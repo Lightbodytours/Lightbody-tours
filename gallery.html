@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery · Lightbody Tours</title>
+  <meta name="description" content="Recent Bellingham and Whatcom County Matterport tours, shot on the Pro 250. Real listings, sold." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html" class="brand">Lightbody Tours</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+          <span></span>
+        </button>
+        <ul class="nav-links" id="primary-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="booking.html" class="btn btn-primary">Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section style="padding-bottom: var(--space-md);">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Recent Work</span>
+          <h1>Tours that closed.</h1>
+          <p>Real Bellingham listings, shot and sold. Currently expanding the Pro 250 portfolio — new tours added regularly.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Tour -->
+    <section style="padding-top: var(--space-md);">
+      <div class="container">
+        <div class="section-head" style="text-align: left; margin-bottom: var(--space-md);">
+          <span class="eyebrow">Featured</span>
+        </div>
+
+        <article class="featured-tour">
+          <a class="tour-image"
+             href="https://my.matterport.com/show/?m=v9D3mjP9tub"
+             target="_blank"
+             rel="noopener"
+             aria-label="Open the 5242 Scarlett Way virtual tour in a new tab">
+            <img src="images/tour-scarlett.jpg"
+                 alt="5242 Scarlett Way, Bellingham WA — Matterport tour preview"
+                 loading="lazy"
+                 onerror="this.remove(); this.parentNode.insertAdjacentHTML('afterbegin','&lt;span class=&quot;tour-fallback-label&quot;&gt;Tour preview&lt;/span&gt;');" />
+            <span class="badge badge-camera">Pro 250</span>
+            <span class="badge badge-sold">Sold</span>
+            <span class="thumb-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </a>
+          <div class="tour-meta">
+            <h3>5242 Scarlett Way</h3>
+            <p class="tour-subtitle">Bellingham, WA</p>
+            <p class="tour-description">Shot on the Matterport Pro 250 — sharper images, true-to-life lighting, more accurate measurements.</p>
+            <a href="https://my.matterport.com/show/?m=v9D3mjP9tub"
+               target="_blank"
+               rel="noopener"
+               class="btn btn-primary">View Live Tour &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Recent Sold Listings -->
+    <section style="background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+      <div class="container">
+        <div class="section-head" style="text-align: left;">
+          <span class="eyebrow">More Recent Sold Listings</span>
+        </div>
+
+        <div class="sold-grid">
+
+          <article class="tour-card">
+            <a class="tour-image"
+               href="https://my.matterport.com/show/?m=8PgP2n5DQMk"
+               target="_blank"
+               rel="noopener"
+               aria-label="Open the 7474 Noon Rd virtual tour in a new tab">
+              <img src="images/tour-noon.jpg"
+                   alt="7474 Noon Rd, Lynden WA — Matterport tour preview"
+                   loading="lazy"
+                   onerror="this.remove(); this.parentNode.insertAdjacentHTML('afterbegin','&lt;span class=&quot;tour-fallback-label&quot;&gt;Tour preview&lt;/span&gt;');" />
+              <span class="badge badge-sold">Sold</span>
+              <span class="thumb-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+            </a>
+            <div class="tour-meta">
+              <h3>7474 Noon Rd</h3>
+              <p class="tour-subtitle">Lynden, WA</p>
+              <a href="https://my.matterport.com/show/?m=8PgP2n5DQMk"
+                 target="_blank"
+                 rel="noopener"
+                 class="btn btn-outline">View Live Tour &rarr;</a>
+            </div>
+          </article>
+
+          <article class="tour-card">
+            <a class="tour-image"
+               href="https://my.matterport.com/show/?m=gP6y59aU4ss"
+               target="_blank"
+               rel="noopener"
+               aria-label="Open the 3401 E 17th Crst virtual tour in a new tab">
+              <img src="images/tour-crst.jpg"
+                   alt="3401 E 17th Crst, Bellingham WA — Matterport tour preview"
+                   loading="lazy"
+                   onerror="this.remove(); this.parentNode.insertAdjacentHTML('afterbegin','&lt;span class=&quot;tour-fallback-label&quot;&gt;Tour preview&lt;/span&gt;');" />
+              <span class="badge badge-sold">Sold</span>
+              <span class="thumb-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+            </a>
+            <div class="tour-meta">
+              <h3>3401 E 17th Crst</h3>
+              <p class="tour-subtitle">Bellingham, WA</p>
+              <a href="https://my.matterport.com/show/?m=gP6y59aU4ss"
+                 target="_blank"
+                 rel="noopener"
+                 class="btn btn-outline">View Live Tour &rarr;</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Growing Portfolio Callout -->
+    <section>
+      <div class="container">
+        <div class="portfolio-callout">
+          <h2>Building the Pro 250 portfolio.</h2>
+          <p>New to Lightbody Tours? First-time agents get 50% off their first tour — call or text <a href="tel:+12536256550">253-625-6550</a> to claim.</p>
+          <a href="booking.html" class="btn btn-primary">Book a Tour &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-strip">
+      <div class="container">
+        <h2>Ready to add your listing?</h2>
+        <p>Self-schedule below. Same-week availability across Whatcom County.</p>
+        <a href="booking.html" class="btn btn-primary">See Available Times &rarr;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-line">Lightbody Tours · Bellingham, WA · <a href="tel:2536256550">253-625-6550</a></p>
+      <p class="footer-line">Licensed Washington Real Estate Agent · Matterport Pro 250 Operator</p>
+      <p class="footer-line">&copy; 2026 Lightbody Tours</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
