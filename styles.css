@@ -23,7 +23,7 @@
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
-html { scroll-padding-top: 80px; }   /* Account for fixed nav on hash-link jumps */
+html { scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px) + 16px); }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
@@ -96,9 +96,12 @@ section { padding: var(--space-xl) 0; }
 .btn-outline:hover { background: var(--navy); color: var(--bg); }
 
 /* ---------- Header / Nav ---------- */
-/* Fixed positioning is more robust than sticky on mobile Safari. */
-/* Body gets padding-top to compensate for the nav taking itself out of flow. */
-body { padding-top: 72px; }
+/* Body padding compensates for the fixed nav being out of flow.
+   Adds the iOS safe-area inset on top so content starts below any system UI
+   (status bar, Dynamic Island, Safari address bar overlay). */
+body {
+  padding-top: calc(72px + env(safe-area-inset-top, 0px));
+}
 
 .site-header {
   position: fixed;
@@ -106,14 +109,16 @@ body { padding-top: 72px; }
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 100;
-  background: var(--bg);          /* Solid — no transparency, no backdrop-filter */
+  z-index: 9999;
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
   box-shadow: 0 1px 3px rgba(10, 37, 64, 0.04);
 
-  /* iOS Safari fix: promote nav to its own GPU compositor layer so it sits above
-     iframe layers (Matterport, Google Calendar). Without this, iframes can
-     render above the nav regardless of z-index. */
+  /* iOS safe-area: push nav contents BELOW the system UI so they can't be
+     clipped by the iPhone status bar / Dynamic Island / Safari overlay bar. */
+  padding-top: env(safe-area-inset-top, 0px);
+
+  /* GPU compositor layer for iframe stacking on iOS Safari */
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   will-change: transform;
