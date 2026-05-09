@@ -5,12 +5,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Lightbody Tours · Matterport 3D Virtual Tours · Bellingham, WA</title>
   <meta name="description" content="Bellingham Matterport tours, shot on the Pro 250. Licensed agent with Supra access serving Whatcom County real estate." />
+  <meta name="theme-color" content="#1865AB" />
+  <link rel="canonical" href="https://lightbodytours.com/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Open Graph / Twitter Card -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lightbodytours.com/" />
+  <meta property="og:title" content="Lightbody Tours · Matterport 3D Virtual Tours · Bellingham, WA" />
+  <meta property="og:description" content="Bellingham Matterport tours, shot on the Pro 250. Licensed agent with Supra access serving Whatcom County real estate." />
+  <meta property="og:image" content="https://lightbodytours.com/images/tour-scarlett.jpg" />
+  <meta property="og:image:alt" content="A recent Bellingham listing captured with the Matterport Pro 250." />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Lightbody Tours" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lightbody Tours · Bellingham Matterport Pro 250" />
+  <meta name="twitter:description" content="Matterport 3D virtual tours for Bellingham and Whatcom County real estate, shot on the Pro 250." />
+  <meta name="twitter:image" content="https://lightbodytours.com/images/tour-scarlett.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="app.css?v=6" />
+  <link rel="stylesheet" href="app.css?v=7" />
+
+  <!-- Structured data: LocalBusiness / Service for local SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://lightbodytours.com/#business",
+    "name": "Lightbody Tours",
+    "description": "Matterport 3D virtual tours for Bellingham and Whatcom County real estate, shot on the Pro 250.",
+    "url": "https://lightbodytours.com/",
+    "telephone": "+1-253-625-6550",
+    "image": "https://lightbodytours.com/images/tour-scarlett.jpg",
+    "priceRange": "$$",
+    "areaServed": [
+      { "@type": "City", "name": "Bellingham" },
+      { "@type": "AdministrativeArea", "name": "Whatcom County" }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bellingham",
+      "addressRegion": "WA",
+      "addressCountry": "US"
+    },
+    "founder": { "@type": "Person", "name": "Sean Lightbody" },
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "name": "Standard Matterport tour (up to 2,000 sq ft)",
+        "price": "200",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Larger home Matterport tour (2,000–3,500 sq ft)",
+        "price": "280",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Estate / custom Matterport tour (3,500+ sq ft)",
+        "price": "380",
+        "priceCurrency": "USD"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- Header -->
   <header class="site-header">
@@ -33,7 +98,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
 
     <!-- Hero (rotating 3-video background, event-driven by script.js) -->
     <section class="hero-video-section"
@@ -236,7 +301,7 @@
                aria-label="Open Bellingham, WA virtual tour in a new tab">
               <img src="https://my.matterport.com/api/v1/player/models/v9D3mjP9tub/thumb"
                    alt="Bellingham, WA tour preview"
-                   loading="lazy"
+                   loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentNode.insertAdjacentHTML('afterbegin','&lt;span class=&quot;thumb-fallback-label&quot;&gt;Tour preview&lt;/span&gt;');" />
               <span class="thumb-play" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -253,7 +318,7 @@
                aria-label="Open Whatcom County, WA virtual tour in a new tab">
               <img src="https://my.matterport.com/api/v1/player/models/C9xJ9vgms29/thumb"
                    alt="Whatcom County, WA tour preview"
-                   loading="lazy"
+                   loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentNode.insertAdjacentHTML('afterbegin','&lt;span class=&quot;thumb-fallback-label&quot;&gt;Tour preview&lt;/span&gt;');" />
               <span class="thumb-play" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -270,7 +335,7 @@
                aria-label="Open Lynden, WA virtual tour in a new tab">
               <img src="https://my.matterport.com/api/v1/player/models/8PgP2n5DQMk/thumb"
                    alt="Lynden, WA tour preview"
-                   loading="lazy"
+                   loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentNode.insertAdjacentHTML('afterbegin','&lt;span class=&quot;thumb-fallback-label&quot;&gt;Tour preview&lt;/span&gt;');" />
               <span class="thumb-play" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>

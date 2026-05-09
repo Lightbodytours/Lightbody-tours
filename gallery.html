@@ -5,12 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Gallery · Lightbody Tours</title>
   <meta name="description" content="Recent Bellingham and Whatcom County Matterport tours, shot on the Pro 250. Real listings, sold." />
+  <meta name="theme-color" content="#1865AB" />
+  <link rel="canonical" href="https://lightbodytours.com/gallery.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lightbodytours.com/gallery.html" />
+  <meta property="og:title" content="Gallery · Lightbody Tours" />
+  <meta property="og:description" content="Recent Bellingham and Whatcom County Matterport tours, shot on the Pro 250. Real listings, sold." />
+  <meta property="og:image" content="https://lightbodytours.com/images/tour-scarlett.jpg" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Lightbody Tours" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gallery · Lightbody Tours" />
+  <meta name="twitter:description" content="Recent Bellingham Matterport Pro 250 tours, shot and sold." />
+  <meta name="twitter:image" content="https://lightbodytours.com/images/tour-scarlett.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="app.css?v=6" />
+  <link rel="stylesheet" href="app.css?v=7" />
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- Header -->
   <header class="site-header">
@@ -33,7 +50,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
 
     <!-- Hero (static-image background, structurally matches the video heroes) -->
     <section class="hero-image-section"
@@ -61,7 +78,7 @@
              aria-label="Open the 5242 Scarlett Way virtual tour in a new tab">
             <img src="images/tour-scarlett.jpg"
                  alt="5242 Scarlett Way, Bellingham WA — Matterport tour preview"
-                 loading="lazy"
+                 loading="lazy" decoding="async"
                  onerror="this.remove(); this.parentNode.insertAdjacentHTML('afterbegin','&lt;span class=&quot;tour-fallback-label&quot;&gt;Tour preview&lt;/span&gt;');" />
             <span class="badge badge-camera">Pro 250</span>
             <span class="badge badge-sold">Sold</span>
@@ -99,7 +116,7 @@
                aria-label="Open the 7474 Noon Rd virtual tour in a new tab">
               <img src="images/tour-noon.jpg"
                    alt="7474 Noon Rd, Lynden WA — Matterport tour preview"
-                   loading="lazy"
+                   loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentNode.insertAdjacentHTML('afterbegin','&lt;span class=&quot;tour-fallback-label&quot;&gt;Tour preview&lt;/span&gt;');" />
               <span class="badge badge-sold">Sold</span>
               <span class="thumb-play" aria-hidden="true">
@@ -124,7 +141,7 @@
                aria-label="Open the 3401 E 17th Crst virtual tour in a new tab">
               <img src="images/tour-crst.jpg"
                    alt="3401 E 17th Crst, Bellingham WA — Matterport tour preview"
-                   loading="lazy"
+                   loading="lazy" decoding="async"
                    onerror="this.remove(); this.parentNode.insertAdjacentHTML('afterbegin','&lt;span class=&quot;tour-fallback-label&quot;&gt;Tour preview&lt;/span&gt;');" />
               <span class="badge badge-sold">Sold</span>
               <span class="thumb-play" aria-hidden="true">
