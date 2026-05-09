@@ -346,9 +346,10 @@ body {
 .stat-card {
   background: #fff;
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: 12px;
   padding: var(--space-md);
   text-align: center;
+  box-shadow: 0 2px 12px rgba(24, 101, 171, 0.08);
 }
 
 .stat-number {
@@ -663,13 +664,14 @@ body {
   top: -12px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--brand-blue);
-  color: #fff;
+  background: var(--gold);
+  color: var(--brand-blue);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   padding: 0.3rem 0.75rem;
   border-radius: var(--radius);
+  box-shadow: 0 2px 6px rgba(200, 164, 93, 0.25);
 }
 
 .price-card h3 {
@@ -1278,4 +1280,271 @@ form.booking-form .btn { margin-top: var(--space-sm); }
   border-radius: 3px;
   font-size: 0.9em;
   font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+/* ────────────────────────────────────────────────────────────────────
+   POLISH PASS: hero video, logo mark, section transitions, shadows
+   ──────────────────────────────────────────────────────────────────── */
+
+/* ---------- Logo (header + footer) ----------
+   The shipped SVG is white-only. We render it as a CSS mask on a <span>
+   so a single asset can be tinted brand-blue on the white nav and
+   white again on the brand-blue footer/CTA strips — no second SVG file,
+   no fragile multi-stage `filter:` chain. */
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.logo-mark {
+  display: inline-block;
+  width: 36px;
+  height: 27px;       /* SVG viewBox is ~810x600 → 36px wide ≈ 27px tall */
+  flex-shrink: 0;
+  background-color: var(--brand-blue);
+  -webkit-mask: url('images/Lightbody_tour_logo_white.svg') center / contain no-repeat;
+          mask: url('images/Lightbody_tour_logo_white.svg') center / contain no-repeat;
+}
+
+.logo-text {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+/* When the logo sits on a brand-blue background, both mark and wordmark go white. */
+.bg-blue .logo-mark,
+.site-footer .logo-mark { background-color: #fff; }
+
+.bg-blue .logo-text,
+.site-footer .logo-text { color: #fff; }
+
+/* On smaller screens shrink the wordmark a touch so the nav stays balanced. */
+@media (max-width: 480px) {
+  .logo-mark { width: 30px; height: 22px; }
+  .logo-text { font-size: 1.1rem; }
+}
+
+/* ---------- Hero: video background ----------
+   Used by index/pricing/booking. Each section sets a `--poster` custom
+   property inline so the reduced-motion fallback can show that image
+   without an extra `<img>` tag. */
+.hero-video-section {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  /* Fallback bg if the video fails AND no --poster is set (rare). */
+  background: var(--brand-blue) center / cover no-repeat;
+}
+
+.hero-video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  /* Default: single video covers the whole section, fully opaque. */
+  opacity: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    rgba(24, 101, 171, 0.72) 0%,
+    rgba(24, 101, 171, 0.50) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 820px;
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.hero-video-section h1,
+.hero-video-section h2 { color: #fff; }
+
+.hero-video-section .eyebrow {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.hero-video-section .lede,
+.hero-video-section p {
+  color: rgba(255, 255, 255, 0.93);
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  max-width: 62ch;
+  margin: 0 auto var(--space-md);
+}
+
+.hero-video-section .hero-actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--space-md);
+}
+
+/* Hero CTA button: gold pill, brand-blue text, hover dim. Overrides .btn-primary
+   *only inside* .hero-video-section so nothing else moves. */
+.hero-video-section .btn-primary {
+  background: var(--gold);
+  color: var(--brand-blue);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+.hero-video-section .btn-primary:hover {
+  background: var(--gold-hover);
+  color: var(--brand-blue);
+}
+
+/* ---------- Hero: rotating 3-video stack (home only) ----------
+   3 video tags layered absolutely, each with a 36s opacity loop offset
+   by 12s. The keyframes ensure exactly one is fully visible at any
+   given t with a brief crossfade between handoffs. */
+.hero-video-section.hero-rotate .hero-video-bg {
+  opacity: 0;
+  animation: hero-video-rotate 36s ease-in-out infinite;
+}
+.hero-video-section.hero-rotate .hero-video-bg:nth-of-type(1) { animation-delay:  0s; }
+.hero-video-section.hero-rotate .hero-video-bg:nth-of-type(2) { animation-delay: 12s; }
+.hero-video-section.hero-rotate .hero-video-bg:nth-of-type(3) { animation-delay: 24s; }
+
+@keyframes hero-video-rotate {
+  0%   { opacity: 1; }
+  33%  { opacity: 1; }
+  38%  { opacity: 0; }
+  95%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* ---------- Hero: static-image variant (gallery) ----------
+   Same structural treatment as the video heroes so the brand feels
+   consistent across pages. */
+.hero-image-section {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  background-color: var(--brand-blue);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.hero-image-section .hero-overlay,
+.hero-image-section .hero-content { /* reuse the video-hero rules */ }
+.hero-image-section h1,
+.hero-image-section h2 { color: #fff; }
+.hero-image-section .eyebrow { color: rgba(255, 255, 255, 0.88); }
+.hero-image-section p,
+.hero-image-section .lede {
+  color: rgba(255, 255, 255, 0.93);
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  max-width: 62ch;
+  margin: 0 auto var(--space-md);
+}
+
+/* ---------- Reduced motion ----------
+   Hide the videos and fall back to the inline --poster image on the
+   section. Avoids any motion that could trigger vestibular issues. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-video-bg { display: none; }
+  .hero-video-section {
+    background-image: var(--poster, none);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .hero-video-section.hero-rotate .hero-video-bg { animation: none; }
+}
+
+/* ---------- Section transitions ----------
+   60px gradient strip at the top of any colored section blends the
+   previous section's background into this one. Fully decorative,
+   pointer-events:none so it never blocks clicks. The `transparent`
+   stop reveals whatever sits above this section. */
+.bg-soft,
+.bg-pale,
+.bg-blue {
+  position: relative;
+}
+.bg-soft::before,
+.bg-pale::before,
+.bg-blue::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-soft::before {
+  background: linear-gradient(to bottom, transparent 0%, var(--bg-soft) 100%);
+}
+.bg-pale::before {
+  background: linear-gradient(to bottom, transparent 0%, var(--brand-blue-pale) 100%);
+}
+.bg-blue::before {
+  background: linear-gradient(to bottom, transparent 0%, var(--brand-blue) 100%);
+}
+/* Make sure section content sits above the gradient strip. */
+.bg-soft > .container,
+.bg-pale > .container,
+.bg-blue > .container { position: relative; z-index: 1; }
+
+/* ---------- "Why it matters" headline punch ---------- */
+.section-head h2 { font-weight: 700; }
+
+/* ---------- Pricing teaser: featured middle card ----------
+   The full pricing page already has .price-card.featured with the gold
+   MOST COMMON badge. Mirror it on the home-page teaser so the middle
+   tier earns visual weight. Reuses the same gold-on-blue treatment. */
+.teaser-card.featured {
+  border-color: var(--brand-blue);
+  border-width: 2px;
+  position: relative;
+  box-shadow: 0 6px 20px rgba(24, 101, 171, 0.10);
+}
+.teaser-card.featured::before {
+  content: 'MOST COMMON';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--brand-blue);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px rgba(200, 164, 93, 0.25);
+}
+
+/* ---------- Gallery: featured-tour image shadow ----------
+   Promotes the lead image visually so it reads as "presented" rather
+   than just placed. Subtle, brand-tinted. */
+.featured-tour {
+  box-shadow: 0 8px 32px rgba(24, 101, 171, 0.15);
+}
+.featured-tour:hover {
+  /* Stronger lift on hover but keep the brand tint. */
+  box-shadow: 0 14px 40px rgba(24, 101, 171, 0.20);
 }

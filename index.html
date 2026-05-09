@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="app.css?v=3" />
+  <link rel="stylesheet" href="app.css?v=4" />
 </head>
 <body>
 
@@ -16,7 +16,10 @@
   <header class="site-header">
     <div class="container">
       <nav class="nav" aria-label="Primary">
-        <a href="index.html" class="brand">Lightbody Tours</a>
+        <a href="index.html" class="nav-logo" aria-label="Lightbody Tours home">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span class="logo-text">Lightbody Tours</span>
+        </a>
         <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
           <span></span>
         </button>
@@ -32,28 +35,28 @@
 
   <main>
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-inner">
-          <span class="eyebrow">Bellingham, WA · Whatcom County</span>
-          <h1>Bellingham Matterport tours, shot on the Pro 250.</h1>
-          <p class="lede">Licensed agent. Self-scheduling with Supra access. The same camera Matterport's professional studios use — giving Whatcom County listings the clarity buyers expect.</p>
-          <div class="hero-actions">
-            <a href="#book" class="btn btn-primary">Book a Tour</a>
-          </div>
-        </div>
-
-        <div class="embed-wrap">
-          <div class="embed">
-            <iframe
-              src="https://my.matterport.com/show/?m=v9D3mjP9tub&play=0"
-              title="Sample Matterport 3D tour"
-              loading="lazy"
-              allowfullscreen
-              allow="xr-spatial-tracking; fullscreen"></iframe>
-          </div>
-          <p class="embed-caption">Recent work — shot with the Matterport Pro 250</p>
+    <!-- Hero (rotating 3-video background) -->
+    <section class="hero-video-section hero-rotate"
+             style="--poster: url('images/videos/pan-scarlett-kitchen.jpg');">
+      <video class="hero-video-bg" autoplay muted loop playsinline preload="metadata"
+             poster="images/videos/pan-scarlett-kitchen.jpg">
+        <source src="images/videos/pan-scarlett-kitchen.mp4" type="video/mp4">
+      </video>
+      <video class="hero-video-bg" autoplay muted loop playsinline preload="metadata"
+             poster="images/videos/pan-scarlett-living.jpg">
+        <source src="images/videos/pan-scarlett-living.mp4" type="video/mp4">
+      </video>
+      <video class="hero-video-bg" autoplay muted loop playsinline preload="metadata"
+             poster="images/videos/pan-scarlett-dining.jpg">
+        <source src="images/videos/pan-scarlett-dining.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="eyebrow">Bellingham, WA · Whatcom County</span>
+        <h1>Bellingham Matterport tours, shot on the Pro 250.</h1>
+        <p class="lede">Licensed agent. Self-scheduling with Supra access. The same camera Matterport's professional studios use — giving Whatcom County listings the clarity buyers expect.</p>
+        <div class="hero-actions">
+          <a href="#book" class="btn btn-primary">Book a Tour</a>
         </div>
       </div>
     </section>
@@ -177,7 +180,7 @@
             <p class="teaser-range">Up to 2,000 sq ft</p>
             <div class="teaser-price">$200</div>
           </article>
-          <article class="teaser-card">
+          <article class="teaser-card featured">
             <div class="teaser-name">Larger Home</div>
             <p class="teaser-range">2,000–3,500 sq ft</p>
             <div class="teaser-price">$280</div>

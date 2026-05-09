@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="app.css?v=3" />
+  <link rel="stylesheet" href="app.css?v=4" />
 </head>
 <body>
 
@@ -16,7 +16,10 @@
   <header class="site-header">
     <div class="container">
       <nav class="nav" aria-label="Primary">
-        <a href="index.html" class="brand">Lightbody Tours</a>
+        <a href="index.html" class="nav-logo" aria-label="Lightbody Tours home">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span class="logo-text">Lightbody Tours</span>
+        </a>
         <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
           <span></span>
         </button>
@@ -32,14 +35,18 @@
 
   <main>
 
-    <!-- Hero -->
-    <section style="padding-bottom: var(--space-md);">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Pricing</span>
-          <h1>Simple, transparent pricing.</h1>
-          <p>Priced by home size. No hidden fees. Same-week availability across Whatcom County.</p>
-        </div>
+    <!-- Hero (single-video background) -->
+    <section class="hero-video-section"
+             style="--poster: url('images/videos/pan-scarlett-kitchen-2.jpg');">
+      <video class="hero-video-bg" autoplay muted loop playsinline preload="metadata"
+             poster="images/videos/pan-scarlett-kitchen-2.jpg">
+        <source src="images/videos/pan-scarlett-kitchen-2.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="eyebrow">Pricing</span>
+        <h1>Simple, transparent pricing.</h1>
+        <p class="lede">Priced by home size. No hidden fees. Same-week availability across Whatcom County.</p>
       </div>
     </section>
 

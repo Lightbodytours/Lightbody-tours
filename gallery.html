@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="app.css?v=3" />
+  <link rel="stylesheet" href="app.css?v=4" />
 </head>
 <body>
 
@@ -16,7 +16,10 @@
   <header class="site-header">
     <div class="container">
       <nav class="nav" aria-label="Primary">
-        <a href="index.html" class="brand">Lightbody Tours</a>
+        <a href="index.html" class="nav-logo" aria-label="Lightbody Tours home">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span class="logo-text">Lightbody Tours</span>
+        </a>
         <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
           <span></span>
         </button>
@@ -32,14 +35,14 @@
 
   <main>
 
-    <!-- Hero -->
-    <section style="padding-bottom: var(--space-md);">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Recent Work</span>
-          <h1>Tours that closed.</h1>
-          <p>Real Bellingham listings, shot and sold. Currently expanding the Pro 250 portfolio — new tours added regularly.</p>
-        </div>
+    <!-- Hero (static-image background, structurally matches the video heroes) -->
+    <section class="hero-image-section"
+             style="background-image: url('images/tour-scarlett.jpg');">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="eyebrow">Recent Work</span>
+        <h1>Tours that closed.</h1>
+        <p class="lede">Real Bellingham listings, shot and sold. Currently expanding the Pro 250 portfolio — new tours added regularly.</p>
       </div>
     </section>
 
