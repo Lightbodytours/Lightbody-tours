@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="app.css?v=4" />
+  <link rel="stylesheet" href="app.css?v=5" />
 </head>
 <body>
 
@@ -35,18 +35,18 @@
 
   <main>
 
-    <!-- Hero (rotating 3-video background) -->
-    <section class="hero-video-section hero-rotate"
+    <!-- Hero (rotating 3-video background, event-driven by script.js) -->
+    <section class="hero-video-section"
              style="--poster: url('images/videos/pan-scarlett-kitchen.jpg');">
-      <video class="hero-video-bg" autoplay muted loop playsinline preload="metadata"
+      <video class="hero-video-bg active" muted playsinline preload="auto" data-index="0"
              poster="images/videos/pan-scarlett-kitchen.jpg">
         <source src="images/videos/pan-scarlett-kitchen.mp4" type="video/mp4">
       </video>
-      <video class="hero-video-bg" autoplay muted loop playsinline preload="metadata"
+      <video class="hero-video-bg" muted playsinline preload="metadata" data-index="1"
              poster="images/videos/pan-scarlett-living.jpg">
         <source src="images/videos/pan-scarlett-living.mp4" type="video/mp4">
       </video>
-      <video class="hero-video-bg" autoplay muted loop playsinline preload="metadata"
+      <video class="hero-video-bg" muted playsinline preload="metadata" data-index="2"
              poster="images/videos/pan-scarlett-dining.jpg">
         <source src="images/videos/pan-scarlett-dining.mp4" type="video/mp4">
       </video>
@@ -58,6 +58,27 @@
         <div class="hero-actions">
           <a href="#book" class="btn btn-primary">Book a Tour</a>
         </div>
+      </div>
+    </section>
+
+    <!-- Interactive Matterport tour preview -->
+    <section class="interactive-tour-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Walk through a real tour</span>
+          <h2>See the Pro 250 difference for yourself.</h2>
+          <p class="lede">A real Bellingham listing, captured with the Matterport Pro 250. Click in and explore.</p>
+        </div>
+        <div class="tour-embed-wrapper">
+          <iframe
+            src="https://my.matterport.com/show/?m=v9D3mjP9tub&play=0"
+            title="Interactive Matterport tour — 5242 Scarlett Way, Bellingham WA"
+            frameborder="0"
+            allowfullscreen
+            allow="xr-spatial-tracking; fullscreen"
+            loading="lazy"></iframe>
+        </div>
+        <p class="tour-caption">5242 Scarlett Way · Bellingham, WA · Sold</p>
       </div>
     </section>
 
