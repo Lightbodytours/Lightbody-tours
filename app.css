@@ -458,6 +458,14 @@ body {
   border-radius: var(--radius);
   padding: var(--space-md);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+/* Push price block to the card bottom so all three cards align prices on the
+   same baseline regardless of description length. */
+.teaser-card .teaser-range {
+  margin-bottom: auto;
+  padding-bottom: var(--space-sm);
 }
 
 .teaser-name {
@@ -678,7 +686,7 @@ body {
 }
 
 .price-card.featured::before {
-  content: 'MOST COMMON';
+  content: 'MOST POPULAR';
   position: absolute;
   top: -12px;
   left: 50%;
@@ -691,6 +699,160 @@ body {
   padding: 0.3rem 0.75rem;
   border-radius: var(--radius);
   box-shadow: 0 2px 6px rgba(200, 164, 93, 0.25);
+  white-space: nowrap;
+}
+
+/* ---------- Service cards (pricing.html) ---------- */
+/* Extends .price-card with a sentence-case service-title hierarchy and a
+   description block. Use as: <article class="price-card service-card"> */
+.service-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+.service-description {
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin-bottom: var(--space-md);
+}
+.service-description strong {
+  color: var(--brand-blue);
+  font-weight: 600;
+}
+
+.service-price {
+  margin-top: auto;
+  margin-bottom: 0.5rem;
+}
+
+.service-price-prefix {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.2rem;
+}
+
+.service-price .price-amount {
+  margin-bottom: 0;
+  font-size: 2.4rem;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+.service-price .price-flat {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+}
+
+.service-savings {
+  display: block;
+  color: var(--brand-blue);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 0.15rem;
+}
+
+.service-tagline {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0 0 var(--space-md);
+}
+
+.service-card .tier-features { margin-bottom: var(--space-sm); }
+
+.service-card .btn { margin-top: var(--space-sm); }
+
+/* "Samples coming soon" soft callout inside a service card */
+.service-note {
+  background: var(--brand-blue-pale);
+  color: var(--brand-blue);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius);
+  margin: 0 0 var(--space-md);
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+}
+.service-note svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 0.1rem;
+}
+
+/* Add-on small footnote under price */
+.addon-note {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0.4rem 0 0;
+}
+
+/* ---------- Pricing-by-size detail table ---------- */
+.pricing-table-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  -webkit-overflow-scrolling: touch;
+}
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+}
+.pricing-table thead th {
+  background: var(--brand-blue);
+  color: #fff;
+  text-align: left;
+  padding: 0.95rem 1.1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.pricing-table thead th:first-child { letter-spacing: 0.04em; }
+.pricing-table tbody td {
+  padding: 0.85rem 1.1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.95rem;
+  color: var(--text);
+  white-space: nowrap;
+}
+.pricing-table tbody td:first-child {
+  font-weight: 600;
+  color: var(--navy);
+  white-space: normal;
+}
+.pricing-table tbody tr:nth-child(even) td {
+  background: var(--bg-soft);
+}
+.pricing-table-note {
+  text-align: center;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin: var(--space-md) auto 0;
+  max-width: 700px;
 }
 
 .price-card h3 {
@@ -1491,7 +1653,7 @@ body {
   box-shadow: 0 6px 20px rgba(24, 101, 171, 0.10);
 }
 .teaser-card.featured::before {
-  content: 'MOST COMMON';
+  content: 'MOST POPULAR';
   position: absolute;
   top: -12px;
   left: 50%;
@@ -1504,6 +1666,27 @@ body {
   padding: 0.3rem 0.75rem;
   border-radius: var(--radius);
   box-shadow: 0 2px 6px rgba(200, 164, 93, 0.25);
+  white-space: nowrap;
+}
+
+/* Price modifiers reused inside teaser cards (prefix / "flat" suffix / savings).
+   The .service-price-prefix and .service-savings rules already exist for
+   pricing.html; these adjust spacing when used inside .teaser-card. */
+.teaser-card .service-price-prefix {
+  margin-bottom: 0.2rem;
+}
+.teaser-card .service-savings {
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+}
+.teaser-price .price-flat {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin-left: 0.25rem;
+  letter-spacing: 0;
+  text-transform: lowercase;
 }
 
 /* ---------- Gallery: featured-tour image shadow ----------
