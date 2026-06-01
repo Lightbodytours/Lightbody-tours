@@ -23,56 +23,52 @@
   <meta name="twitter:description" content="Property Media for Bellingham real estate — Matterport tours, listing videos, floor plans." />
   <meta name="twitter:image" content="https://lightbodytours.com/images/tour-scarlett.jpg" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="app.css?v=9" />
-
-  <!-- Structured data: LocalBusiness / Service for local SEO -->
+  <!-- LocalBusiness schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://lightbodytours.com/#business",
     "name": "Lightbody Tours",
-    "description": "Matterport 3D virtual tours for Bellingham and Whatcom County real estate, shot on the Pro 250.",
-    "url": "https://lightbodytours.com/",
-    "telephone": "+1-253-625-6550",
     "image": "https://lightbodytours.com/images/tour-scarlett.jpg",
-    "priceRange": "$$",
-    "areaServed": [
-      { "@type": "City", "name": "Bellingham" },
-      { "@type": "AdministrativeArea", "name": "Whatcom County" }
-    ],
+    "description": "Property Media for Bellingham real estate brokers — Matterport 3D tours, listing videos, floor plans. 48-hour delivery.",
+    "url": "https://lightbodytours.com",
+    "telephone": "+12536256550",
+    "email": "sean@lightbodytours.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Bellingham",
       "addressRegion": "WA",
       "addressCountry": "US"
     },
-    "founder": { "@type": "Person", "name": "Sean Lightbody" },
-    "makesOffer": [
-      {
-        "@type": "Offer",
-        "name": "Standard Matterport tour (under 2,500 sq ft)",
-        "price": "200",
-        "priceCurrency": "USD"
-      },
-      {
-        "@type": "Offer",
-        "name": "Larger home Matterport tour (2,500–4,000 sq ft)",
-        "price": "300",
-        "priceCurrency": "USD"
-      },
-      {
-        "@type": "Offer",
-        "name": "Estate / custom Matterport tour (4,000+ sq ft)",
-        "price": "400",
-        "priceCurrency": "USD"
-      }
-    ]
+    "areaServed": [
+      {"@type": "City", "name": "Bellingham"},
+      {"@type": "AdministrativeArea", "name": "Whatcom County"}
+    ],
+    "priceRange": "$$",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
   }
   </script>
+
+  <!-- WebSite schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Lightbody Tours",
+    "url": "https://lightbodytours.com",
+    "description": "Property Media for Bellingham real estate brokers — Matterport 3D tours, listing videos, floor plans."
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="app.css?v=9" />
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>

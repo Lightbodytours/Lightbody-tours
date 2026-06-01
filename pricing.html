@@ -21,6 +21,116 @@
   <meta name="twitter:description" content="Property Media pricing for Bellingham brokers — tours, videos, bundles from $400." />
   <meta name="twitter:image" content="https://lightbodytours.com/images/tour-scarlett.jpg" />
 
+  <!-- LocalBusiness schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Lightbody Tours",
+    "image": "https://lightbodytours.com/images/tour-scarlett.jpg",
+    "description": "Property Media for Bellingham real estate brokers — Matterport 3D tours, listing videos, floor plans. 48-hour delivery.",
+    "url": "https://lightbodytours.com",
+    "telephone": "+12536256550",
+    "email": "sean@lightbodytours.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bellingham",
+      "addressRegion": "WA",
+      "addressCountry": "US"
+    },
+    "areaServed": [
+      {"@type": "City", "name": "Bellingham"},
+      {"@type": "AdministrativeArea", "name": "Whatcom County"}
+    ],
+    "priceRange": "$$",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  }
+  </script>
+
+  <!-- Service: Matterport 3D Tour -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Matterport 3D Tour",
+    "description": "Professional Matterport 3D virtual tour shot on the Pro 250 camera. Delivered in 48 hours. Compatible with MLS, Realtor.com, Homes.com, and your website.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Lightbody Tours"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Bellingham"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "200",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": "200",
+        "priceCurrency": "USD"
+      }
+    }
+  }
+  </script>
+
+  <!-- Service: Listing Video -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Listing Video",
+    "description": "Cinematic listing video edited for Zillow, social media, and broker portfolios. 48-hour delivery. Both 16:9 and 9:16 formats included.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Lightbody Tours"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Bellingham"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "250",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Service: Property Media Package -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Property Media Package",
+    "description": "Complete Property Media bundle: Matterport 3D tour, listing video, and floor plan from one shoot. Saves $99 vs purchasing services separately. 48-hour delivery.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Lightbody Tours"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Bellingham"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "400",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": "400",
+        "priceCurrency": "USD"
+      }
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
