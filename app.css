@@ -1699,3 +1699,47 @@ body {
   /* Stronger lift on hover but keep the brand tint. */
   box-shadow: 0 14px 40px rgba(24, 101, 171, 0.20);
 }
+
+/* ---------- Gallery: media-type tabs + YouTube video cards ---------- */
+/* Wave 3 Pass 4. Used on gallery.html only, but lives in app.css for
+   token consistency. Reuses --brand-blue, --brand-blue-pale, --text,
+   --font-body, --space-md, --radius. */
+
+.lt-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--brand-blue-pale);
+  margin: 0 0 var(--space-md);
+}
+.lt-tab {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: color 150ms ease, background-color 150ms ease, border-bottom-color 150ms ease;
+  /* Nudge so the active 2px border sits over the group's 1px hairline */
+  margin-bottom: -1px;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.lt-tab:hover { background: var(--brand-blue-pale); }
+.lt-tab.is-active {
+  color: var(--brand-blue);
+  border-bottom-color: var(--brand-blue);
+}
+.lt-tab:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 2px;
+}
+
+.lt-panel { display: none; }
+.lt-panel.is-active { display: block; }
+
+/* Video-card thumbnail acts as a click target; the tour-image parent
+   already carries cursor:pointer and hover effects. */
+.lt-video { display: block; }
